@@ -32,7 +32,7 @@ export default {
                     <p class="py-4">
 
                         Ciao! Sono Francesco Falcone, un Junior Fullstack Web Developer.
-                        Sono appassionato di sviluppo web e attualmente sto completando un intenso corso di formazione
+                        Sono appassionato di sviluppo web e ho completato un intenso corso di formazione
                         con Boolean, dove ho acquisito competenze pratiche nello sviluppo di applicazioni moderne
                         utilizzando tecnologie come HTML, CSS, JavaScript e PHP.
 
