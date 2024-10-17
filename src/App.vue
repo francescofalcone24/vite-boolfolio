@@ -27,7 +27,7 @@ export default {
   mounted() {
 
     axios
-      .get('http://localhost:8000/api/projects')
+      .get('https://admin.francescowebdev.com/api/projects')
       .then(response => {
         this.store.projects = response.data.progetti;
         //console.log(this.store.projects);

@@ -3,9 +3,9 @@ import { reactive } from 'vue';
 const iMieiDati = reactive({
     projects: '',
     singleProject: null,
-    localHostUrl: 'admin.francescowebdev',
-    urlEachPage: 'admin.francescowebdev/api/projects?page=',
-    urlProjects: 'admin.francescowebdev/api/projects',
+    localHostUrl: 'https://admin.francescowebdev',
+    urlEachPage: 'https://admin.francescowebdev/api/projects?page=',
+    urlProjects: 'https://admin.francescowebdev/api/projects',
     linksMenu: [
         'Home',
         'Projects',
