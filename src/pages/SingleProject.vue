@@ -25,7 +25,7 @@ export default {
     console.log(this.$route.params.slug);
 
     axios
-      .get(`http://127.0.0.1:8000/api/projects/${this.$route.params.slug}`)
+      .get(`https://admin.francescowebdev.com/api/projects/${this.$route.params.slug}`)
       .then(response => {
         if (response.data.status) {
           store.singleProject = response.data.progetto;
