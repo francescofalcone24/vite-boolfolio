@@ -22,6 +22,7 @@ export default {
     },
 
     mounted() {
+        console.log(this.$route);
 
 
     }
@@ -35,7 +36,8 @@ export default {
         <div class="d-flex justify-content-center">
             <ul v-for="link in store.linksMenu" class="m-0">
                 <li>
-                    <router-link :to="{ name: link }" class="nav-link text-dark"> {{ link }} </router-link>
+                    <router-link :to="{ name: link }" class="nav-link text-dark rounded"
+                        :class="link == this.$route.name ? 'bg-highlighted' : ''"> {{ link }} </router-link>
                 </li>
             </ul>
         </div>
@@ -46,5 +48,9 @@ export default {
 <style scoped>
 li {
     list-style: none;
+}
+
+.bg-highlighted {
+    background-color: lightblue;
 }
 </style>
