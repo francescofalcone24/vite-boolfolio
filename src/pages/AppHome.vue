@@ -26,7 +26,7 @@ export default {
                     Naviga tra i miei progetti, scopri il mio lavoro e non esitare a contattarmi se hai un'idea che vuoi
                     trasformare in realtà. Sono pronto a collaborare e a mettere in campo le mie competenze per portare
                     i tuoi progetti al livello successivo.</p>
-                <a href="../assets/file/EN-CV Francesco Falcone.pdf" target="_blank"
+                <a href="../../file/EN-CVFrancescoFalcone.pdf" target="_blank"
                     class="my-animation px-3 py-2 bg-light rounded rounded-pill text-decoration-none">Download
                     my CV</a>
             </div>
