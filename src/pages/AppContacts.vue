@@ -28,7 +28,7 @@ export default {
 
             // Importante - Stiamo comunicando con Laravel, quindi non è più obbligatorio inserire gli headers con il Content-Type
             // come abbiamo fatto invece quando comunicavamo direttamente con gli script PHP
-            axios.post("http://127.0.0.1:8000/api/contacts", data).then((response) => {
+            axios.post("https://admin.francescowebdev.com/api/contacts", data).then((response) => {
                 this.success = response.data.success;
                 if (!this.success) {
                     this.errors = response.data.errors;
@@ -53,11 +53,6 @@ export default {
 
             <div class="row justify-content-center mb-4">
 
-                <div class="col-md-4 col-sm-6 col-4 text-center  p-3 mx-5 my-1 rounded my_bg">
-                    <h5>E-mail</h5>
-                    <i class="fa-solid fa-envelope"></i>
-                    <p class="text-info">f.scofalcone@gmail.com</p>
-                </div>
                 <div class="col-md-4 col-sm-6 col-4 text-center p-3 mx-5 my-1 rounded my_bg"
                     style=" --bs-bg-opacity:.5">
                     <h5>LinkedIn</h5>
