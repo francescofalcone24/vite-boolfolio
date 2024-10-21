@@ -14,7 +14,7 @@ export default {
         </div>
         <div class="row">
             <div class="text-center col-md-6 col-sm-12 p-5 mt-4">
-                <p class="my-animation mt-4 fs-5 text-primary">Ciao! Sono Francesco, un Junior Web Developer con una
+                <p class="my-animation mt-4 fs-5 text-light">Ciao! Sono Francesco, un Junior Web Developer con una
                     passione per la
                     creazione di
                     esperienze
