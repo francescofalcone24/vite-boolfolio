@@ -11,37 +11,56 @@ export default {
             message: '',
             loading: false,
             success: false,
-            errors: {}
+            errors: {},
+            policyInput: false
         }
     },
     methods: {
+
+
         sendForm() {
-            this.loading = true;
-            const data = {
-                'name': this.name,
-                'email': this.email,
-                'message': this.message
-            };
+            if (this.policyInput = true) {
+                this.loading = true;
+                const data = {
+                    'name': this.name,
+                    'email': this.email,
+                    'message': this.message
+                };
 
-            // pulisco l'array con i messaggi
-            this.errors = {};
+                // pulisco l'array con i messaggi
+                this.errors = {};
 
-            // Importante - Stiamo comunicando con Laravel, quindi non è più obbligatorio inserire gli headers con il Content-Type
-            // come abbiamo fatto invece quando comunicavamo direttamente con gli script PHP
-            axios.post("https://admin.francescowebdev.com/api/contacts", data).then((response) => {
-                this.success = response.data.success;
-                if (!this.success) {
-                    this.errors = response.data.errors;
-                    console.log(this.errors);
-                } else {
-                    // ripulisco i campi di input
-                    this.name = '';
-                    this.email = '';
-                    this.message = '';
-                }
-                this.loading = false;
-            });
+                // Importante - Stiamo comunicando con Laravel, quindi non è più obbligatorio inserire gli headers con il Content-Type
+                // come abbiamo fatto invece quando comunicavamo direttamente con gli script PHP
+                axios.post("https://admin.francescowebdev.com/api/contacts", data).then((response) => {
+                    this.success = response.data.success;
+                    if (!this.success) {
+                        this.errors = response.data.errors;
+                        console.log(this.errors);
+                    } else {
+                        // ripulisco i campi di input
+                        this.name = '';
+                        this.email = '';
+                        this.message = '';
+                    }
+                    this.loading = false;
+                });
+            }
+
         },
+    },
+
+    mounted() {
+        (function (w, d) {
+            var loader = function () {
+                var s = d.createElement("script"),
+                    tag = d.getElementsByTagName("script")[0]; s.src = "https://cdn.iubenda.com/iubenda.js";
+                tag.parentNode.insertBefore(s, tag);
+            }; if (w.addEventListener) { w.addEventListener("load", loader, false); } else if (w.attachEvent) {
+                w.attachEvent("onload", loader);
+
+            } else { w.onload = loader; }
+        })(window, document);
     }
 }
 </script>
@@ -94,8 +113,16 @@ export default {
                             {{ error }}
                         </p>
                     </div>
-                    <button class="btn btn-lg btn-primary text-white" type="submit" :disabled="loading">{{ loading ?
-                        'Sending...' : 'Send'
+                    <div class="mb-3">
+                        <input type="checkbox" class="me-1" v-model="policyInput">
+                        <a href="https://www.iubenda.com/privacy-policy/70516770"
+                            class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe "
+                            title="Privacy Policy ">Privacy Policy* (campo obbligatorio)</a>
+
+                    </div>
+                    <button class="btn btn-lg btn-primary text-white" type="submit"
+                        :disabled="!loading && !policyInput">{{ loading ?
+                            'Sending...' : 'Send'
                         }}</button>
                 </form>
             </div>
