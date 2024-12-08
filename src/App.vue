@@ -26,12 +26,12 @@ export default {
 
   mounted() {
 
-    axios
-      .get('https://admin.francescowebdev.com/api/projects')
-      .then(response => {
-        this.store.projects = response.data.progetti;
-        //console.log(this.store.projects);
-      })
+    // axios
+    //   .get('https://admin.francescowebdev.com/api/projects')
+    //   .then(response => {
+    //     this.store.projects = response.data.progetti;
+    //     //console.log(this.store.projects);
+    //   })
   }
 
 

@@ -21,6 +21,15 @@ export default {
 
     }
   },
+  methods: {
+    getProject(index) {
+      if (index < 0 || index >= store.projects.length) {
+        return null;
+      }
+      const projectToCopy = store.projects[index];
+      store.singleProject = projectToCopy;
+    }
+  },
 
   mounted() {
 
@@ -33,19 +42,24 @@ export default {
 
   <div class="container">
     <div class="row d-flex flex-wrap">
-      <div v-for="project, index in store.projects.data" class="col-xl-4 col-md-6 col-sm-12 mt-4">
+      <div v-for="project, index in store.projects" class="col-xl-4 col-md-6 col-sm-12 mt-4">
         <div class="card border-0" style="width: 100%; height: 100%;">
-          <img v-if="!project.img.startsWith('http')" :src="store.localHostUrl + '/storage/' + project.img"
-            class="card-img-top" alt="...">
+          <!-- <img v-if="!project.img.startsWith('http')" :src="store.localHostUrl + '/storage/' + project.img"
+            class="card-img-top" alt="..."> -->
 
-          <img v-else="" :src="project.img" class="card-img-top" alt="...">
+          <img :src="project.img" class="card-img-top" alt="...">
           <div class="card-body my_bg">
-            <div>
-              <h5 class="card-title"><span class="fw-bold">Progetto:</span> {{ project.name_project }}</h5>
+            <div class="">
+              <h5 class="card-title"><span class="fw-bold">Progetto:</span> {{ project.name }}</h5>
             </div>
-            <div>
+            <!-- <div>
               <router-link :to="{ name: 'SingleProject', params: { slug: project.slug } }"
-                class="btn btn-outline-primary mt-auto">more
+                class="btn btn-outline-primary mt-auto" @click="getProject(index)">more
+                details</router-link>
+            </div> -->
+            <div>
+              <router-link :to="{ name: 'SingleProject' }" class="btn btn-outline-primary mt-auto"
+                @click="this.getProject(index)">more
                 details</router-link>
             </div>
           </div>
@@ -55,7 +69,7 @@ export default {
   </div>
 
 
-  <Paginate />
+  <!-- <Paginate /> -->
 
 
 </template>

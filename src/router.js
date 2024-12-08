@@ -29,8 +29,13 @@ const router = createRouter({
             name: 'Projects',
             component: AppProjects
         },
+        // {
+        //     path: '/projects/:slug',
+        //     name: 'SingleProject',
+        //     component: SingleProject
+        // },
         {
-            path: '/projects/:slug',
+            path: '/SingleProject',
             name: 'SingleProject',
             component: SingleProject
         },
