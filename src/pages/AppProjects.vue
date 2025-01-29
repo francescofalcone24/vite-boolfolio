@@ -28,7 +28,11 @@ export default {
       }
       const projectToCopy = store.projects[index];
       store.singleProject = projectToCopy;
-    }
+    },
+
+    getImage(imageName) {
+      return new URL(`../assets/img/${imageName}`, import.meta.url).href;
+    },
   },
 
   mounted() {
@@ -47,7 +51,7 @@ export default {
           <!-- <img v-if="!project.img.startsWith('http')" :src="store.localHostUrl + '/storage/' + project.img"
             class="card-img-top" alt="..."> -->
 
-          <img :src="project.img" class="card-img-top" alt="...">
+          <img :src="getImage(project.img)" class="card-img-top" alt="...">
           <div class="card-body my_bg">
             <div class="">
               <h5 class="card-title"><span class="fw-bold">Progetto:</span> {{ project.name }}</h5>

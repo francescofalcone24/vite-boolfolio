@@ -19,6 +19,12 @@ export default {
 
     }
   },
+  methods: {
+
+    getImage(imageName) {
+      return new URL(`../assets/img/${imageName}`, import.meta.url).href;
+    },
+  },
 
   mounted() {
 
@@ -53,7 +59,7 @@ export default {
       <!-- <img v-if="!store.singleProject.img.startsWith('http')"
         :src="store.localHostUrl + '/storage/' + store.singleProject.img" class="card-img-top" alt="..."> -->
 
-      <img :src="store.singleProject.img" class="card-img-top" alt="...">
+      <img :src="getImage(store.singleProject.img)" class="card-img-top" alt="...">
 
 
       <div class="card-body">
